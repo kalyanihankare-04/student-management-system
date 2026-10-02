@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Management Dashboard</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #eef4ff;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        .header {
+            background: #2563eb;
+            color: white;
+            padding: 25px;
+        }
+
+        .header h1 {
+            margin: 0;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            margin: 40px auto;
+        }
+
+        .card {
+            background: white;
+            width: 220px;
+            display: inline-block;
+            margin: 15px;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            vertical-align: top;
+        }
+
+        .card h2 {
+            color: #2563eb;
+            font-size: 35px;
+            margin: 10px;
+        }
+
+        .card p {
+            font-size: 18px;
+            color: #555;
+        }
+
+        .buttons {
+            margin-top: 30px;
+        }
+
+        button {
+            padding: 12px 22px;
+            margin: 8px;
+            border: none;
+            border-radius: 6px;
+            background: #2563eb;
+            color: white;
+            font-size: 15px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #1d4ed8;
+        }
+
+        .logout {
+            background: #dc2626;
+        }
+
+        .logout:hover {
+            background: #b91c1c;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="header">
+        <h1>Student Management System</h1>
+        <p>Dashboard</p>
+    </div>
+
+    <div class="container">
+
+        <div class="card">
+            <h2>{{ total_students }}</h2>
+            <p>Total Students</p>
+        </div>
+
+        <div class="buttons">
+
+            <a href="/add_student">
+                <button>Add Student</button>
+            </a>
+
+            <a href="/view_students">
+                <button>View Students</button>
+            </a>
+
+            <a href="/search_student">
+                <button>Search Student</button>
+            </a>
+
+            <br>
+
+            <a href="/logout">
+                <button class="logout">Logout</button>
+            </a>
+
+        </div>
+
+    </div>
+
+</body>
+</html>
