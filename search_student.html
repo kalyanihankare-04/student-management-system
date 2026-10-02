@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Search Student</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #eef4ff;
+            text-align: center;
+            padding: 40px;
+        }
+
+        .box {
+            background: white;
+            width: 90%;
+            max-width: 800px;
+            margin: auto;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+        }
+
+        h1 {
+            color: #2563eb;
+        }
+
+        input {
+            width: 60%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+        }
+
+        button {
+            padding: 11px 20px;
+            border: none;
+            border-radius: 6px;
+            background: #2563eb;
+            color: white;
+            cursor: pointer;
+            margin-left: 5px;
+        }
+
+        button:hover {
+            background: #1d4ed8;
+        }
+
+        table {
+            width: 100%;
+            margin-top: 30px;
+            border-collapse: collapse;
+        }
+
+        th {
+            background: #2563eb;
+            color: white;
+            padding: 12px;
+        }
+
+        td {
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+
+        tr:hover {
+            background: #f5f8ff;
+        }
+
+        .back {
+            background: #555;
+            margin-top: 25px;
+        }
+
+        .not-found {
+            color: red;
+            margin-top: 25px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="box">
+
+        <h1>🔍 Search Student</h1>
+
+        <form method="POST">
+
+            <input type="text"
+                   name="search"
+                   placeholder="Enter Name or Roll No"
+                   required>
+
+            <button type="submit">Search</button>
+
+        </form>
+
+        {% if students %}
+
+        <table>
+
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Roll No</th>
+                <th>Course</th>
+                <th>Email</th>
+            </tr>
+
+            {% for student in students %}
+
+            <tr>
+                <td>{{ student[0] }}</td>
+                <td>{{ student[1] }}</td>
+                <td>{{ student[2] }}</td>
+                <td>{{ student[3] }}</td>
+                <td>{{ student[4] }}</td>
+            </tr>
+
+            {% endfor %}
+
+        </table>
+
+        {% elif request.method == "POST" %}
+
+        <p class="not-found">No student found.</p>
+
+        {% endif %}
+
+        <a href="/home">
+            <button class="back">Back to Dashboard</button>
+        </a>
+
+    </div>
+
+</body>
+</html>
